@@ -1,0 +1,488 @@
+/* Reset básico e fontes */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
+    background-color: #1a1a1a; /* Tema escuro impactante */
+    color: #f0f0f0; /* Cor de texto clara */
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevenir scroll horizontal */
+}
+
+header, main, footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #00ffcc; /* Cor de destaque vibrante (ciano/verde) */
+    margin-bottom: 15px;
+    text-transform: uppercase; /* Deixa mais estilizado */
+}
+
+section {
+    padding: 40px 20px;
+    margin-bottom: 30px;
+    background-color: #2c2c2c; /* Fundo de seção ligeiramente mais claro */
+    border-radius: 8px; /* Cantos arredondados suaves */
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.1); /* Sombra sutil com a cor de destaque */
+    
+    /* Animação de entrada */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+section:hover {
+    transform: translateY(-5px); /* Efeito de levantar ao passar o mouse */
+    box-shadow: 0 8px 25px rgba(0, 255, 204, 0.2); /* Sombra mais pronunciada */
+}
+
+/* Estilo específico para introdução */
+#intro {
+    text-align: center;
+    padding: 80px 20px 60px; /* Aumentar padding superior */
+    background-image: linear-gradient(rgba(13, 13, 13, 0.85), rgba(44, 44, 44, 0.9)), url('matrix_code.jpg'); /* Imagem de fundo com overlay */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito parallax */
+    border-radius: 0; /* Sem borda arredondada para o header */
+    box-shadow: none; /* Sem sombra para o header */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Remover animação de pulso anterior que pode conflitar com a imagem */
+/* #intro::before { ... } */
+/* @keyframes pulse { ... } */
+
+#intro h1 {
+    font-size: 3.5em;
+    margin-bottom: 10px;
+    color: #ffffff; /* Branco para o nome principal */
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.7); /* Sombra mais forte */
+    position: relative;
+}
+
+#intro h2 {
+    font-size: 1.5em;
+    color: #00ffcc; /* Cor de destaque */
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#intro p {
+    font-size: 1.1em;
+    color: #cccccc;
+    position: relative;
+    max-width: 700px; /* Limitar largura do texto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.profile-pic {
+    width: 180px; /* Ajustar tamanho */
+    height: 180px;
+    border-radius: 50%;
+    margin: 0 auto 30px;
+    border: 5px solid #00ffcc; /* Borda mais grossa */
+    box-shadow: 0 0 25px rgba(0, 255, 204, 0.6); /* Sombra mais pronunciada */
+    object-fit: cover;
+    animation: float 6s ease-in-out infinite;
+    background-color: #333; /* Cor de fundo para placeholder */
+    display: flex; /* Centralizar ícone placeholder */
+    justify-content: center;
+    align-items: center;
+    font-size: 5em; /* Tamanho do ícone placeholder */
+    color: #555;
+}
+
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 25px; /* Aumentar espaçamento */
+    margin-top: 30px;
+}
+
+.social-links a {
+    color: #00ffcc;
+    font-size: 1.8em; /* Aumentar tamanho */
+    transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #ffffff;
+    transform: scale(1.2) rotate(5deg);
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+/* Estilo para competências */
+#competencias ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espaçamento entre itens */
+    justify-content: center;
+}
+
+#competencias li {
+    background-color: #00ffcc;
+    color: #1a1a1a; /* Texto escuro no fundo claro */
+    padding: 10px 20px; /* Aumentar padding */
+    border-radius: 25px; /* Mais arredondado */
+    font-weight: bold;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: default; /* Indicar que não é clicável */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#competencias li:hover {
+    transform: scale(1.1); /* Efeito de zoom */
+    background-color: #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilo para linha do tempo da experiência */
+#experiencia .timeline {
+    position: relative;
+    padding-left: 50px; /* Espaço para a linha */
+    border-left: 3px solid #00ffcc; /* Linha do tempo vertical */
+}
+
+#experiencia .evento {
+    margin-bottom: 40px;
+    position: relative;
+    padding: 20px;
+    background-color: #333; /* Fundo ligeiramente diferente */
+    border-radius: 8px;
+    border-left: 5px solid #00ffcc;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease;
+}
+
+#experiencia .evento.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#experiencia .evento:hover {
+    background-color: #3a3a3a;
+}
+
+#experiencia .evento::before {
+    content: '\f0b1'; /* Ícone de maleta (Font Awesome) */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: -63px; /* Ajustar posição */
+    top: 20px;
+    width: 25px; /* Tamanho do ícone */
+    height: 25px;
+    background-color: #00ffcc; /* Cor do fundo do ícone */
+    color: #1a1a1a; /* Cor do ícone */
+    border-radius: 50%;
+    border: 3px solid #1a1a1a; /* Borda para destacar */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+#experiencia .evento:hover::before {
+    transform: scale(1.3) rotate(10deg);
+    background-color: #ffffff;
+}
+
+#experiencia .evento h3 {
+    font-size: 1.4em;
+    margin-bottom: 5px;
+}
+
+#experiencia .evento .periodo {
+    color: #00ffcc;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 0.9em;
+}
+
+/* Estilo para projetos */
+#projetos-jogos .projetos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px; /* Aumentar espaçamento */
+    margin-top: 30px;
+}
+
+#projetos-jogos .projeto {
+    background-color: #333;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+#projetos-jogos .projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 255, 204, 0.3);
+}
+
+#projetos-jogos .projeto-imagem {
+    width: 100%;
+    height: 180px;
+    background-color: #444; /* Placeholder */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #888;
+    font-size: 2em;
+    /* Adicionar imagem real via style="background-image: url(...)" ou <img> */
+    background-size: cover;
+    background-position: center;
+}
+
+#projetos-jogos .projeto-info {
+    padding: 20px;
+    flex-grow: 1; /* Faz o info ocupar o espaço restante */
+}
+
+#projetos-jogos .projeto-info h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#projetos-jogos .projeto-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+#projetos-jogos .projeto-tag {
+    background-color: #1a1a1a;
+    color: #00ffcc;
+    padding: 5px 10px; /* Ajustar padding */
+    border-radius: 4px;
+    font-size: 0.8em;
+}
+
+/* Estilo para Contato */
+#contato {
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+}
+
+#contato .contato-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustar largura mínima */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#contato .contato-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #333; /* Fundo para destacar */
+    padding: 15px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+#contato .contato-item:hover {
+    background-color: #444;
+}
+
+#contato .contato-icon {
+    font-size: 1.8em;
+    color: #00ffcc;
+    width: 40px; /* Largura fixa para alinhar */
+    text-align: center;
+}
+
+#contato a {
+    color: #00ffcc;
+    text-decoration: none;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+    word-break: break-word; /* Quebrar links longos */
+}
+
+#contato a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Botão de navegação */
+.nav-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background-color: #00ffcc;
+    color: #1a1a1a;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.7); /* Sombra mais forte */
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-toggle:hover {
+    transform: scale(1.1);
+    background-color: #ffffff;
+}
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100vh;
+    background-color: rgba(26, 26, 26, 0.95); /* Fundo semi-transparente */
+    backdrop-filter: blur(5px);
+    z-index: 999;
+    padding: 80px 20px 20px;
+    transition: right 0.4s ease-in-out; /* Transição mais suave */
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-bottom: 15px;
+}
+
+.nav-menu a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.3em; /* Aumentar fonte */
+    display: flex; /* Alinhar ícone e texto */
+    align-items: center;
+    gap: 10px;
+    padding: 12px 15px; /* Ajustar padding */
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.nav-menu a i {
+    width: 20px; /* Largura fixa para ícones */
+    text-align: center;
+}
+
+.nav-menu a:hover, .nav-menu a.active {
+    color: #00ffcc;
+    border-left-color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.1);
+    padding-left: 20px; /* Indentar mais */
+}
+
+/* Animação de digitação para o título */
+/* .typing-effect { ... } */ /* Já definido antes */
+/* @keyframes typing { ... } */
+/* @keyframes blink-caret { ... } */
+
+/* Efeito de partículas para o fundo (opcional, pode pesar) */
+/* .particles { ... } */
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #aaaaaa;
+    border-top: 1px solid #333;
+    position: relative;
+    font-size: 0.9em;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #intro h1 { font-size: 2.8em; }
+    #intro h2 { font-size: 1.3em; }
+    
+    #competencias ul {
+        justify-content: center;
+    }
+    
+    #experiencia .timeline {
+        padding-left: 30px;
+    }
+    
+    #experiencia .evento::before {
+        left: -43px; /* Ajustar para tela menor */
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        top: 22px;
+    }
+    
+    .profile-pic {
+        width: 150px;
+        height: 150px;
+        font-size: 4em;
+    }
+    
+    #projetos-jogos .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .nav-menu {
+        width: 250px;
+        right: -250px;
+    }
+}
+
+/* Animação para o scroll (opcional) */
+/* .scroll-down { ... } */
+/* @keyframes bounce { ... } */
+/* .scroll-down svg { ... } */
+
+/* Melhoria botões/links gerais */
+a.button-like {
+    display: inline-block;
+    background-color: #00ffcc;
+    color: #1a1a1a;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+a.button-like:hover {
+    background-color: #ffffff;
+    color: #1a1a1a;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
+}
+
