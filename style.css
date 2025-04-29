@@ -1,5 +1,5 @@
 /* Reset básico e fontes */
-body, h1, h2, h3, p, ul, li {
+body, h1, h2, h3, p, ul, li, nav {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,30 +7,77 @@ body, h1, h2, h3, p, ul, li {
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fonte moderna */
-    background-color: #1a1a1a; /* Tema escuro impactante */
-    color: #f0f0f0; /* Cor de texto clara */
+    background-color: #0a192f; /* Azul muito escuro (quase preto) */
+    color: #ccd6f6; /* Azul acinzentado claro para texto principal */
     line-height: 1.6;
     overflow-x: hidden; /* Prevenir scroll horizontal */
 }
 
-header, main, footer {
+/* Navegação Superior Fixa */
+.top-nav {
+    background-color: rgba(10, 25, 47, 0.85); /* Fundo da nav com transparência */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    padding: 10px 0;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.top-nav li {
+    margin: 0 15px;
+}
+
+.top-nav a {
+    color: #ccd6f6; /* Cor do texto da nav */
+    text-decoration: none;
+    font-size: 1em;
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.top-nav a:hover, .top-nav a.active {
+    color: #64ffda; /* Azul claro/ciano para hover/ativo */
+    background-color: rgba(100, 255, 218, 0.1);
+}
+
+header {
+    padding-top: 80px; /* Adicionar padding para compensar nav fixa */
+}
+
+main, footer {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
 }
 
 h1, h2, h3 {
-    color: #00ffcc; /* Cor de destaque vibrante (ciano/verde) */
+    color: #64ffda; /* Azul claro/ciano para títulos */
     margin-bottom: 15px;
-    text-transform: uppercase; /* Deixa mais estilizado */
+    /* text-transform: uppercase; /* Remover uppercase para um look mais clean */
 }
 
 section {
     padding: 40px 20px;
     margin-bottom: 30px;
-    background-color: #2c2c2c; /* Fundo de seção ligeiramente mais claro */
+    background-color: #112240; /* Azul escuro para fundo de seção */
     border-radius: 8px; /* Cantos arredondados suaves */
-    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.1); /* Sombra sutil com a cor de destaque */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
     
     /* Animação de entrada */
     opacity: 0;
@@ -45,66 +92,62 @@ section.visible {
 
 section:hover {
     transform: translateY(-5px); /* Efeito de levantar ao passar o mouse */
-    box-shadow: 0 8px 25px rgba(0, 255, 204, 0.2); /* Sombra mais pronunciada */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3); /* Sombra mais pronunciada */
 }
 
 /* Estilo específico para introdução */
 #intro {
     text-align: center;
-    padding: 80px 20px 60px; /* Aumentar padding superior */
-    background-image: linear-gradient(rgba(13, 13, 13, 0.85), rgba(44, 44, 44, 0.9)), url('matrix_code.jpg'); /* Imagem de fundo com overlay */
+    padding: 80px 20px 60px;
+    background-image: linear-gradient(rgba(10, 25, 47, 0.85), rgba(17, 34, 64, 0.9)), url('matrix_code.jpg'); /* Overlay azul escuro */
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Efeito parallax */
-    border-radius: 0; /* Sem borda arredondada para o header */
-    box-shadow: none; /* Sem sombra para o header */
+    border-radius: 0;
+    box-shadow: none;
     position: relative;
     overflow: hidden;
 }
-
-/* Remover animação de pulso anterior que pode conflitar com a imagem */
-/* #intro::before { ... } */
-/* @keyframes pulse { ... } */
 
 #intro h1 {
     font-size: 3.5em;
     margin-bottom: 10px;
     color: #ffffff; /* Branco para o nome principal */
-    text-shadow: 0 0 15px rgba(0, 255, 204, 0.7); /* Sombra mais forte */
+    text-shadow: 0 0 15px rgba(100, 255, 218, 0.5); /* Sombra azul claro */
     position: relative;
 }
 
 #intro h2 {
     font-size: 1.5em;
-    color: #00ffcc; /* Cor de destaque */
+    color: #64ffda; /* Azul claro/ciano */
     margin-bottom: 20px;
     position: relative;
 }
 
 #intro p {
     font-size: 1.1em;
-    color: #cccccc;
+    color: #a8b2d1; /* Azul acinzentado mais claro para descrição */
     position: relative;
-    max-width: 700px; /* Limitar largura do texto */
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .profile-pic {
-    width: 180px; /* Ajustar tamanho */
+    width: 180px;
     height: 180px;
     border-radius: 50%;
     margin: 0 auto 30px;
-    border: 5px solid #00ffcc; /* Borda mais grossa */
-    box-shadow: 0 0 25px rgba(0, 255, 204, 0.6); /* Sombra mais pronunciada */
+    border: 5px solid #64ffda; /* Borda azul claro */
+    box-shadow: 0 0 25px rgba(100, 255, 218, 0.4); /* Sombra azul claro */
     object-fit: cover;
     animation: float 6s ease-in-out infinite;
-    background-color: #333; /* Cor de fundo para placeholder */
-    display: flex; /* Centralizar ícone placeholder */
+    background-color: #112240; /* Fundo placeholder azul escuro */
+    display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 5em; /* Tamanho do ícone placeholder */
-    color: #555;
+    font-size: 5em;
+    color: #233554; /* Cor ícone placeholder azul mais escuro */
 }
 
 @keyframes float {
@@ -116,20 +159,20 @@ section:hover {
 .social-links {
     display: flex;
     justify-content: center;
-    gap: 25px; /* Aumentar espaçamento */
+    gap: 25px;
     margin-top: 30px;
 }
 
 .social-links a {
-    color: #00ffcc;
-    font-size: 1.8em; /* Aumentar tamanho */
+    color: #64ffda; /* Azul claro */
+    font-size: 1.8em;
     transition: transform 0.3s ease, color 0.3s ease, text-shadow 0.3s ease;
 }
 
 .social-links a:hover {
     color: #ffffff;
     transform: scale(1.2) rotate(5deg);
-    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+    text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
 }
 
 /* Estilo para competências */
@@ -137,41 +180,45 @@ section:hover {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px; /* Espaçamento entre itens */
+    gap: 15px;
     justify-content: center;
 }
 
 #competencias li {
-    background-color: #00ffcc;
-    color: #1a1a1a; /* Texto escuro no fundo claro */
-    padding: 10px 20px; /* Aumentar padding */
-    border-radius: 25px; /* Mais arredondado */
+    background-color: #233554; /* Fundo azul mais escuro para pílulas */
+    color: #64ffda; /* Texto azul claro */
+    padding: 10px 20px;
+    border-radius: 25px;
     font-weight: bold;
     transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
-    cursor: default; /* Indicar que não é clicável */
+    cursor: default;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex; /* Alinhar ícone */
+    align-items: center;
+    gap: 8px;
 }
 
 #competencias li:hover {
-    transform: scale(1.1); /* Efeito de zoom */
-    background-color: #ffffff;
+    transform: scale(1.1);
+    background-color: #64ffda; /* Fundo azul claro no hover */
+    color: #0a192f; /* Texto escuro no hover */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Estilo para linha do tempo da experiência */
 #experiencia .timeline {
     position: relative;
-    padding-left: 50px; /* Espaço para a linha */
-    border-left: 3px solid #00ffcc; /* Linha do tempo vertical */
+    padding-left: 50px;
+    border-left: 3px solid #233554; /* Linha do tempo azul mais escuro */
 }
 
 #experiencia .evento {
     margin-bottom: 40px;
     position: relative;
     padding: 20px;
-    background-color: #333; /* Fundo ligeiramente diferente */
+    background-color: #112240; /* Mesmo fundo da seção */
     border-radius: 8px;
-    border-left: 5px solid #00ffcc;
+    border-left: 5px solid #64ffda; /* Borda esquerda azul claro */
     opacity: 0;
     transform: translateX(-20px);
     transition: opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease;
@@ -183,42 +230,46 @@ section:hover {
 }
 
 #experiencia .evento:hover {
-    background-color: #3a3a3a;
+    background-color: #172a45; /* Azul um pouco mais claro no hover */
 }
 
 #experiencia .evento::before {
-    content: '\f0b1'; /* Ícone de maleta (Font Awesome) */
-    font-family: 'Font Awesome 6 Free';
-    font-weight: 900;
+    content: ''; /* Remover ícone padrão, usar borda */
+    /* font-family: 'Font Awesome 6 Free'; */
+    /* font-weight: 900; */
     position: absolute;
-    left: -63px; /* Ajustar posição */
+    left: -61px; /* Ajustar posição para alinhar com a borda */
     top: 20px;
-    width: 25px; /* Tamanho do ícone */
-    height: 25px;
-    background-color: #00ffcc; /* Cor do fundo do ícone */
-    color: #1a1a1a; /* Cor do ícone */
+    width: 15px; /* Tamanho do marcador */
+    height: 15px;
+    background-color: #64ffda; /* Cor do marcador azul claro */
     border-radius: 50%;
-    border: 3px solid #1a1a1a; /* Borda para destacar */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 14px;
+    border: 3px solid #0a192f; /* Borda para destacar com cor de fundo */
+    /* display: flex; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* font-size: 14px; */
     transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 #experiencia .evento:hover::before {
-    transform: scale(1.3) rotate(10deg);
+    transform: scale(1.3);
     background-color: #ffffff;
 }
 
 #experiencia .evento h3 {
     font-size: 1.4em;
     margin-bottom: 5px;
+    color: #ccd6f6; /* Cor do título do evento */
+}
+
+#experiencia .evento p strong {
+     color: #a8b2d1; /* Cor para o nome da empresa */
 }
 
 #experiencia .evento .periodo {
-    color: #00ffcc;
-    font-weight: bold;
+    color: #8892b0; /* Azul acinzentado para período */
+    font-weight: normal; /* Remover bold */
     margin-bottom: 10px;
     display: block;
     font-size: 0.9em;
@@ -228,46 +279,47 @@ section:hover {
 #projetos-jogos .projetos-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 30px; /* Aumentar espaçamento */
+    gap: 30px;
     margin-top: 30px;
 }
 
 #projetos-jogos .projeto {
-    background-color: #333;
+    background-color: #112240; /* Fundo azul escuro */
     border-radius: 8px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 #projetos-jogos .projeto:hover {
     transform: translateY(-10px);
-    box-shadow: 0 10px 25px rgba(0, 255, 204, 0.3);
+    box-shadow: 0 10px 25px rgba(100, 255, 218, 0.1); /* Sombra azul claro */
 }
 
 #projetos-jogos .projeto-imagem {
     width: 100%;
     height: 180px;
-    background-color: #444; /* Placeholder */
+    background-color: #0a192f; /* Placeholder azul muito escuro */
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #888;
+    color: #233554; /* Cor ícone placeholder */
     font-size: 2em;
-    /* Adicionar imagem real via style="background-image: url(...)" ou <img> */
     background-size: cover;
     background-position: center;
 }
 
 #projetos-jogos .projeto-info {
     padding: 20px;
-    flex-grow: 1; /* Faz o info ocupar o espaço restante */
+    flex-grow: 1;
 }
 
 #projetos-jogos .projeto-info h3 {
     font-size: 1.2em;
     margin-bottom: 10px;
+    color: #ccd6f6; /* Cor título projeto */
 }
 
 #projetos-jogos .projeto-tags {
@@ -278,21 +330,21 @@ section:hover {
 }
 
 #projetos-jogos .projeto-tag {
-    background-color: #1a1a1a;
-    color: #00ffcc;
-    padding: 5px 10px; /* Ajustar padding */
+    background-color: #233554; /* Fundo tag azul mais escuro */
+    color: #64ffda; /* Texto tag azul claro */
+    padding: 5px 10px;
     border-radius: 4px;
     font-size: 0.8em;
 }
 
 /* Estilo para Contato */
 #contato {
-    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    background: linear-gradient(135deg, #112240, #0a192f); /* Gradiente azul escuro */
 }
 
 #contato .contato-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ajustar largura mínima */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     margin-top: 30px;
 }
@@ -301,28 +353,28 @@ section:hover {
     display: flex;
     align-items: center;
     gap: 15px;
-    background-color: #333; /* Fundo para destacar */
+    background-color: #112240; /* Fundo azul escuro */
     padding: 15px;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 #contato .contato-item:hover {
-    background-color: #444;
+    background-color: #172a45; /* Azul um pouco mais claro no hover */
 }
 
 #contato .contato-icon {
     font-size: 1.8em;
-    color: #00ffcc;
-    width: 40px; /* Largura fixa para alinhar */
+    color: #64ffda; /* Azul claro */
+    width: 40px;
     text-align: center;
 }
 
 #contato a {
-    color: #00ffcc;
+    color: #64ffda; /* Azul claro */
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
-    word-break: break-word; /* Quebrar links longos */
+    word-break: break-word;
 }
 
 #contato a:hover {
@@ -330,100 +382,25 @@ section:hover {
     text-decoration: underline;
 }
 
-/* Botão de navegação */
-.nav-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1000;
-    background-color: #00ffcc;
-    color: #1a1a1a;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 0 15px rgba(0, 255, 204, 0.7); /* Sombra mais forte */
-    transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.nav-toggle:hover {
-    transform: scale(1.1);
-    background-color: #ffffff;
-}
-
-.nav-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100vh;
-    background-color: rgba(26, 26, 26, 0.95); /* Fundo semi-transparente */
-    backdrop-filter: blur(5px);
-    z-index: 999;
-    padding: 80px 20px 20px;
-    transition: right 0.4s ease-in-out; /* Transição mais suave */
-    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.6);
-}
-
-.nav-menu.active {
-    right: 0;
-}
-
-.nav-menu ul {
-    list-style: none;
-}
-
-.nav-menu li {
-    margin-bottom: 15px;
-}
-
-.nav-menu a {
-    color: #f0f0f0;
-    text-decoration: none;
-    font-size: 1.3em; /* Aumentar fonte */
-    display: flex; /* Alinhar ícone e texto */
-    align-items: center;
-    gap: 10px;
-    padding: 12px 15px; /* Ajustar padding */
-    border-left: 4px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.nav-menu a i {
-    width: 20px; /* Largura fixa para ícones */
-    text-align: center;
-}
-
-.nav-menu a:hover, .nav-menu a.active {
-    color: #00ffcc;
-    border-left-color: #00ffcc;
-    background-color: rgba(0, 255, 204, 0.1);
-    padding-left: 20px; /* Indentar mais */
-}
-
-/* Animação de digitação para o título */
-/* .typing-effect { ... } */ /* Já definido antes */
-/* @keyframes typing { ... } */
-/* @keyframes blink-caret { ... } */
-
-/* Efeito de partículas para o fundo (opcional, pode pesar) */
-/* .particles { ... } */
-
 footer {
     text-align: center;
     margin-top: 40px;
     padding: 20px;
-    color: #aaaaaa;
-    border-top: 1px solid #333;
+    color: #8892b0; /* Azul acinzentado para footer */
+    border-top: 1px solid #233554; /* Linha azul mais escuro */
     position: relative;
     font-size: 0.9em;
 }
 
+footer i {
+    color: #64ffda !important; /* Garantir cor do ícone no footer */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
+    header { padding-top: 60px; } /* Ajustar padding para nav menor */
+    .top-nav ul { flex-direction: column; padding: 10px 0; } /* Empilhar nav em mobile */
+    .top-nav li { margin: 5px 0; } 
     #intro h1 { font-size: 2.8em; }
     #intro h2 { font-size: 1.3em; }
     
@@ -436,10 +413,9 @@ footer {
     }
     
     #experiencia .evento::before {
-        left: -43px; /* Ajustar para tela menor */
-        width: 20px;
-        height: 20px;
-        font-size: 12px;
+        left: -48px; /* Ajustar para tela menor */
+        width: 12px;
+        height: 12px;
         top: 22px;
     }
     
@@ -452,37 +428,96 @@ footer {
     #projetos-jogos .projetos-grid {
         grid-template-columns: 1fr;
     }
-    
-    .nav-menu {
-        width: 250px;
-        right: -250px;
-    }
 }
-
-/* Animação para o scroll (opcional) */
-/* .scroll-down { ... } */
-/* @keyframes bounce { ... } */
-/* .scroll-down svg { ... } */
 
 /* Melhoria botões/links gerais */
 a.button-like {
     display: inline-block;
-    background-color: #00ffcc;
-    color: #1a1a1a;
+    background-color: #64ffda; /* Azul claro */
+    color: #0a192f; /* Texto escuro */
     padding: 10px 20px;
-    border-radius: 25px;
+    border-radius: 4px; /* Menos arredondado */
     text-decoration: none;
     font-weight: bold;
     transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
     margin-top: 15px;
-    border: none;
+    border: 1px solid #64ffda;
     cursor: pointer;
 }
 
 a.button-like:hover {
-    background-color: #ffffff;
-    color: #1a1a1a;
+    background-color: rgba(100, 255, 218, 0.1); /* Fundo transparente com borda */
+    color: #64ffda; /* Texto azul claro */
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais sutil */
 }
+
+
+/* Estilo para categorias de projetos */
+.categorias-projetos {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.categoria {
+    background-color: #112240; /* Fundo azul escuro */
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(100, 255, 218, 0.1);
+}
+
+.categoria h3 {
+    color: #64ffda; /* Azul claro/ciano */
+    margin-bottom: 20px;
+    border-bottom: 2px solid #233554; /* Linha separadora */
+    padding-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.categoria ul {
+    list-style: none;
+    padding-left: 5px; /* Pequeno recuo */
+}
+
+.categoria li {
+    margin-bottom: 12px;
+    color: #a8b2d1; /* Azul acinzentado para itens */
+    position: relative;
+    padding-left: 20px; /* Espaço para marcador */
+}
+
+.categoria li::before {
+    content: '\f105'; /* Ícone de seta (Font Awesome) */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: #64ffda; /* Cor do marcador */
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.categoria .tech {
+    font-size: 0.8em;
+    color: #8892b0; /* Cor mais sutil para tecnologias */
+    margin-left: 5px;
+    font-style: italic;
+}
+
+/* Remover grid anterior de projetos */
+/* #projetos-jogos .projetos-grid { ... } */
+/* #projetos-jogos .projeto { ... } */
+/* #projetos-jogos .projeto-imagem { ... } */
+/* #projetos-jogos .projeto-info { ... } */
+/* #projetos-jogos .projeto-tags { ... } */
+/* #projetos-jogos .projeto-tag { ... } */
 
